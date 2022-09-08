@@ -1,0 +1,12 @@
+:root {
+ --border-color: #444;
+ --border-radius: 0.5rem;
+
+ --color-foreground: #222;
+ --color-primary: #AC5500;
+ --color-on-primary: #FFF;
+}
+
+body, button {
+ font-weight: 500;
+}

@@ -1,0 +1,6 @@
+.idea
+wardrobe.iml
+node_modules
+dist
+yarn-error.log
+

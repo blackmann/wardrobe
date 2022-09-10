@@ -1,0 +1,8 @@
+:root {
+    /*--ladle-bg-color-secondary: #F8F9FA;*/
+}
+
+.ladle-background {
+    transition: background-color var(--animation-duration) ease-out;
+}
+

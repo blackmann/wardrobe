@@ -3,13 +3,15 @@ import styles from './Button.module.css'
 import clsx from 'clsx'
 
 interface ButtonProps extends React.PropsWithChildren {
+  disabled?: boolean
   outlined?: boolean
 }
 
-function Button({ children, outlined }: ButtonProps) {
+function Button({children, disabled, outlined}: ButtonProps) {
   return (
     <button
-      className={clsx(styles.button, { [styles.buttonOutlined]: outlined })}
+      className={clsx(styles.button, {[styles.buttonOutlined]: outlined})}
+      disabled={disabled}
     >
       {children}
     </button>

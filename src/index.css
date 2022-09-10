@@ -1,12 +1,27 @@
 :root {
- --border-color: #444;
- --border-radius: 0.5rem;
+    --border-radius: 0.5rem;
 
- --color-foreground: #222;
- --color-primary: #AC5500;
- --color-on-primary: #FFF;
+    --color-foreground: #222;
+    --color-primary: #7193ca;
+    --color-on-primary: #fff;
+    --color-surface: #F8F9FA;
+    --color-inactive: #89959F;
+    --color-disabled: #89959f;
+
+    --animation-duration: 240ms;
 }
 
 body, button {
- font-weight: 500;
+    font-weight: 500;
+}
+
+html[data-theme="dark"] {
+    --border-color: #999;
+
+    --color-foreground: #DDD;
+    --color-primary: #DDD;
+    --color-on-primary: #222;
+}
+
+html {
 }

@@ -1,0 +1,32 @@
+.textInput {
+    background-color: transparent;
+    border: none;
+    color: var(--color-foreground);
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+}
+
+.textInput::placeholder {
+    color: var(--color-inactive)
+}
+
+.textInput:disabled {
+    cursor: not-allowed;
+}
+
+* + .textInput {
+    margin-left: 1rem;
+}
+
+.textInputContainer {
+    align-items: center;
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    display: flex;
+    padding: 0.75rem;
+}
+
+label > .textInputContainer {
+    margin-top: 0.5rem;
+}

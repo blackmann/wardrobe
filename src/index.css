@@ -12,6 +12,7 @@
 }
 
 body, button {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-weight: 500;
 }
 
@@ -21,7 +22,5 @@ html[data-theme="dark"] {
     --color-foreground: #DDD;
     --color-primary: #DDD;
     --color-on-primary: #222;
-}
-
-html {
+    --color-surface: #252525;
 }

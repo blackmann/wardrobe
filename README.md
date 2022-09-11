@@ -42,7 +42,7 @@ variables. _You may/should only be interested in color and font_!
 
 ## Components
 
-Visit [ladle-here]
+Stories for components are hosted here: https://wardrobe-components.vercel.app/
 
 ## Why not use MUI, React Bootstrap, Base web, etc.
 

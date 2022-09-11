@@ -1,19 +1,10 @@
 # wardrobe
 
-My personal components library to help me bootstrap ideas quickly. This set of components are very constrained and not
+A personal React ⚛️components library to bootstrap ideas quickly. This set of components are very constrained and not
 designed to be omnipotent. If you can't find what you want, you're better off using another components library or
 implementing yours.
 
 🌗 Dark mode inside
-
-## Why not use MUI, React Bootstrap, Base web, etc.
-
-Open source libraries (especially frontend libraries) have now turned into products. Instead of solving a simple
-problem, they solve everybody's problem - leading to bloat. I'm a fan of small bundle size and straightforward APIs. 
-I want to spend more time writing code than referencing docs of a web component library.
-
-The original idea is to develop faster with these libraries, but I find myself developing way slower.
-
 
 ## Installation + Usage
 
@@ -52,3 +43,11 @@ variables. _You may/should only be interested in color and font_!
 ## Components
 
 Visit [ladle-here]
+
+## Why not use MUI, React Bootstrap, Base web, etc.
+
+Open source libraries (especially frontend libraries) have now turned into products. Instead of solving a simple
+problem, they solve everybody's problem - leading to bloat. I'm a fan of small bundle size and straightforward APIs.
+I want to spend more time writing code than referencing docs of a web component library.
+
+The original idea is to develop faster with these libraries, but I find myself developing way slower.

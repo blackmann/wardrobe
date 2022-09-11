@@ -1,0 +1,28 @@
+.select {
+    appearance: none;
+    background-color: var(--color-surface);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='gray' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: solid transparent var(--border-width);
+    border-radius: var(--border-radius);
+    display: block;
+    color: var(--color-foreground);
+    font-size: 1rem;
+    outline: none;
+    padding: 0.75rem 3rem 0.75rem 0.75rem;
+    transition: border-color var(--animation-duration) ease-out;
+}
+
+.select:focus {
+    border-color: currentColor;
+}
+
+label > .select {
+    margin-top: 0.5rem;
+}
+
+.select:disabled {
+    color: var(--color-disabled);
+}

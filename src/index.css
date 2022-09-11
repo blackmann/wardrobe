@@ -13,8 +13,6 @@
 }
 
 html[data-theme="dark"] {
-    --border-color: #999;
-
     --color-foreground: #DDD;
     --color-primary: #DDD;
     --color-on-primary: #222;

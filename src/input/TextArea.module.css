@@ -13,3 +13,7 @@
 .textArea:focus {
     border-color: currentColor;
 }
+
+label > .textArea {
+    margin-top: 0.5rem;
+}

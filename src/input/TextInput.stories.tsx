@@ -17,15 +17,18 @@ function SearchIcon() {
   )
 }
 
-export const Plain = () => (
-  <>
+export const Plain = () => {
+  const ref = React.useRef()
+
+  return (
     <TextInput
       leading={<SearchIcon />}
       placeholder="What are you searching for"
       type="search"
+      ref={ref}
     />
-  </>
-)
+  )
+}
 
 export const LabeledNumber = () => (
   <div style={{ width: 200 }}>

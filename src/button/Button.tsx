@@ -1,6 +1,6 @@
 import React, { ForwardedRef } from 'react'
-import styles from './Button.module.css'
 import clsx from 'clsx'
+import styles from './Button.module.css'
 
 interface ButtonProps extends React.PropsWithChildren {
   className?: string
@@ -30,5 +30,7 @@ const Button = React.forwardRef(
     )
   }
 )
+
+Button.displayName = 'Button'
 
 export default Button

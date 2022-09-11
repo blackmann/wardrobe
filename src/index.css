@@ -1,5 +1,6 @@
 :root {
     --border-radius: 0.5rem;
+    --border-width: 2px;
 
     --color-foreground: #222;
     --color-primary: #7193ca;
@@ -11,11 +12,6 @@
     --animation-duration: 240ms;
 }
 
-body, button {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 500;
-}
-
 html[data-theme="dark"] {
     --border-color: #999;
 
@@ -24,3 +20,14 @@ html[data-theme="dark"] {
     --color-on-primary: #222;
     --color-surface: #252525;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--color-foreground);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 500;
+}
+

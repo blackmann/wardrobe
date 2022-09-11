@@ -3,6 +3,7 @@
     border: none;
     color: var(--color-foreground);
     font-size: 1rem;
+    font-weight: 500;
     outline: none;
     width: 100%;
 }
@@ -22,9 +23,15 @@
 .textInputContainer {
     align-items: center;
     background-color: var(--color-surface);
+    border: solid var(--border-width) transparent;
     border-radius: var(--border-radius);
     display: flex;
     padding: 0.75rem;
+    transition: border-color calc(var(--animation-duration) / 2) ease-out;
+}
+
+.textInputContainer.focused {
+    border-color: currentColor;
 }
 
 label > .textInputContainer {

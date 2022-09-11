@@ -3,9 +3,10 @@
   "version": "0.0.2",
   "scripts": {
     "build": "rm -rf dist && rollup -c",
-    "ladle": "ladle serve",
+    "ladle:build": "ladle build",
+    "ladle:serve": "ladle serve",
     "lint": "eslint ./src -c .eslintrc.js  --ext ts,tsx",
-    "build:publish": "yarn build && npm publish"
+    "publish": "yarn build && npm publish"
   },
   "peerDependencies": {
     "react": "^18.2.0"

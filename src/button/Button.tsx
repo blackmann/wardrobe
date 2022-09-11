@@ -4,7 +4,7 @@ import styles from './Button.module.css'
 
 interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   outlined?: boolean
-  type: 'button' | 'submit' | 'reset' | undefined
+  type?: 'button' | 'submit' | 'reset' | undefined
 }
 
 const Button = React.forwardRef(

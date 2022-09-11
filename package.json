@@ -1,10 +1,11 @@
 {
   "name": "@blackmann/wardrobe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "rm -rf dist && rollup -c",
     "ladle": "ladle serve",
-    "lint": "eslint ./src -c .eslintrc.js  --ext ts,tsx"
+    "lint": "eslint ./src -c .eslintrc.js  --ext ts,tsx",
+    "build:publish": "yarn build && npm publish"
   },
   "peerDependencies": {
     "react": "^18.2.0"
@@ -14,6 +15,10 @@
   },
   "repository": "https://github.com/blackmann/wardrobe.git",
   "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@babel/core": "^7.19.0",
     "@ladle/react": "^2.4.2",

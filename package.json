@@ -1,6 +1,6 @@
 {
-  "name": "wardrobe",
-  "version": "1.0.0",
+  "name": "@blackmann/wardrobe",
+  "version": "0.0.1",
   "scripts": {
     "build": "rm -rf dist && rollup -c",
     "ladle": "ladle serve",
@@ -9,6 +9,10 @@
   "peerDependencies": {
     "react": "^18.2.0"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/blackmann"
+  },
+  "repository": "https://github.com/blackmann/wardrobe.git",
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.19.0",

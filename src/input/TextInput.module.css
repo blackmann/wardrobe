@@ -12,10 +12,6 @@
     color: var(--color-inactive)
 }
 
-.textInput:disabled {
-    cursor: not-allowed;
-}
-
 * + .textInput {
     margin-left: 1rem;
 }
@@ -26,7 +22,7 @@
     border: solid var(--border-width) transparent;
     border-radius: var(--border-radius);
     display: flex;
-    padding: 0.75rem;
+    padding: 0.5rem;
     transition: border-color calc(var(--animation-duration) / 2) ease-out;
 }
 

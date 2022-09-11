@@ -25,9 +25,16 @@ html[data-theme="dark"] {
     box-sizing: border-box;
 }
 
+*:disabled, button:disabled {
+    cursor: not-allowed;
+}
+
 body {
     color: var(--color-foreground);
     font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body, button {
     font-weight: 500;
 }
 

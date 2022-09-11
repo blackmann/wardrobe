@@ -1,0 +1,15 @@
+.textArea {
+    font-size: 1rem;
+    background-color: var(--color-surface);
+    border: solid var(--border-width) transparent;
+    border-radius: var(--border-radius);
+    color: var(--color-foreground);
+    outline: none;
+    padding: 0.5rem;
+    width: 100%;
+    transition: border-color calc(var(--animation-duration) / 2) ease-out;
+}
+
+.textArea:focus {
+    border-color: currentColor;
+}

@@ -2,6 +2,10 @@
     /*--ladle-bg-color-secondary: #F8F9FA;*/
 }
 
+[data-theme="dark"] {
+    --ladle-bg-color-primary: #222;
+}
+
 .ladle-background {
     transition: background-color var(--animation-duration) ease-out;
 }

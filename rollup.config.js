@@ -1,6 +1,6 @@
+import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
-import commonjs from "@rollup/plugin-commonjs"
 import typescript from '@rollup/plugin-typescript'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
@@ -19,7 +19,7 @@ const config = {
   plugins: [
     nodeResolve({ extensions }),
     commonjs(),
-    postcss({ extract: "styles/index.css", modules: true }),
+    postcss({ extract: 'styles/index.css', modules: true }),
     typescript(),
   ],
 }

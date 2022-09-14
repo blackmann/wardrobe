@@ -3,14 +3,18 @@ import { Theme } from './theme'
 export function getPreferredTheme(): Theme {
   const theme = localStorage.getItem('theme')
   if (theme === null) {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark'
-    }
-
-    return 'light'
+    return 'system'
   }
 
   return theme as Theme
+}
+
+export function resolveTheme() {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark'
+  }
+
+  return 'light'
 }
 
 export function setPreferredTheme(theme: Theme) {

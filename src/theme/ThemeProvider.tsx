@@ -1,5 +1,6 @@
 import {
   getPreferredTheme,
+  resolveTheme,
   setPreferredTheme,
   updateDocumentTheme,
 } from './utils'
@@ -32,10 +33,21 @@ function ThemeProvider({ children }: ThemeProviderProps) {
 
   React.useEffect(() => {
     // FIXME: Keep in sync with state
-    window.matchMedia('(prefers-color-scheme: dark)').onchange = () => {
-      updateDocumentTheme(getPreferredTheme())
+    if (theme !== 'system') {
+      return
     }
-  }, [])
+
+    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)')
+    colorScheme.onchange = () => {
+      updateDocumentTheme(resolveTheme())
+    }
+
+    updateDocumentTheme(resolveTheme())
+
+    return () => {
+      colorScheme.onchange = null
+    }
+  }, [theme])
 
   return (
     <ThemeContext.Provider value={{ setTheme, theme }}>

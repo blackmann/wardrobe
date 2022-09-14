@@ -8,16 +8,11 @@ implementing yours.
 
 ## Installation + Usage
 
-Add the following to `.npmrc` in your project root. _Create if not existing._
-
-```
-@blackmann:registry=https://npm.pkg.github.com
-```
-
 Install with
 
 ```sh
 yarn add @blackmann/wardrobe
+npm install @blackmann/wardrobe
 ```
 
 Enjoy?

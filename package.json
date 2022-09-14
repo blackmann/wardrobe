@@ -5,14 +5,10 @@
     "build": "rm -rf dist && rollup -c",
     "ladle:build": "ladle build",
     "ladle:serve": "ladle serve",
-    "lint": "eslint ./src -c .eslintrc.js  --ext ts,tsx",
-    "publish": "yarn build && npm publish"
+    "lint": "eslint ./src -c .eslintrc.js  --ext ts,tsx"
   },
   "peerDependencies": {
     "react": "^18.2.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/blackmann"
   },
   "repository": "https://github.com/blackmann/wardrobe.git",
   "types": "dist/index.d.ts",

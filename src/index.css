@@ -45,3 +45,7 @@ a {
     color: currentColor;
 }
 
+fieldset {
+    border: none;
+}
+

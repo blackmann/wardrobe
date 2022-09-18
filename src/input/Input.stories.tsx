@@ -1,5 +1,5 @@
 import React from 'react'
-import TextInput from './TextInput'
+import Input from './Input'
 
 function SearchIcon() {
   return (
@@ -21,7 +21,7 @@ export const Plain = () => {
   const ref = React.useRef()
 
   return (
-    <TextInput
+    <Input
       leading={<SearchIcon />}
       placeholder="What are you searching for"
       type="search"
@@ -34,7 +34,7 @@ export const LabeledNumber = () => (
   <div style={{ width: 200 }}>
     <label>
       How much?
-      <TextInput
+      <Input
         leading={<span style={{ color: 'var(--color-inactive)' }}>GHS</span>}
         type="number"
       />
@@ -43,5 +43,38 @@ export const LabeledNumber = () => (
 )
 
 export const Disabled = () => (
-  <TextInput disabled placeholder="This should be disabled" />
+  <Input disabled placeholder="This should be disabled" />
+)
+
+export const Checkbox = () => (
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <Input type="checkbox" id="feeling" style={{ marginRight: '1rem' }} />
+    <label htmlFor="feeling">Looking good?</label>
+  </div>
+)
+
+export const Radio = () => (
+  <>
+    <fieldset>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Input
+          name="choice"
+          type="radio"
+          id="money"
+          style={{ marginRight: '1rem' }}
+        />
+        <label htmlFor="money">Get all you want</label>
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Input
+          name="choice"
+          type="radio"
+          id="power"
+          style={{ marginRight: '1rem' }}
+        />
+        <label htmlFor="power">Influence people</label>
+      </div>
+    </fieldset>
+  </>
 )

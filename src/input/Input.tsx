@@ -1,14 +1,14 @@
 import React from 'react'
 import clsx from 'clsx'
-import styles from './TextInput.module.css'
+import styles from './Input.module.css'
 
-interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
+interface InputProps extends React.HTMLProps<HTMLInputElement> {
   leading?: React.ReactNode
 }
 
-const TextInput = React.forwardRef(
+const Input = React.forwardRef(
   (
-    { className, leading, ...forwardedProps }: TextInputProps,
+    { className, leading, ...forwardedProps }: InputProps,
     ref: React.ForwardedRef<any> | undefined
   ) => {
     const [focused, setFocused] = React.useState(false)
@@ -23,25 +23,32 @@ const TextInput = React.forwardRef(
       forwardedProps.onFocus?.(event)
     }
 
+    const checkable = ['checkbox', 'radio'].includes(
+      forwardedProps.type || 'text'
+    )
+
     return (
       <div
-        className={clsx(styles.textInputContainer, className, {
+        className={clsx(styles.inputContainer, className, {
           [styles.focused]: focused,
+          [styles.noBackground]: checkable,
+          [styles.inline]: checkable,
         })}
       >
         {leading}
         <input
           {...forwardedProps}
-          className={styles.textInput}
+          className={styles.input}
           onBlur={handleBlur}
           onFocus={handleFocus}
           ref={ref}
         />
+        {forwardedProps.children}
       </div>
     )
   }
 )
 
-TextInput.displayName = 'TextInput'
+Input.displayName = 'Input'
 
-export default TextInput
+export default Input

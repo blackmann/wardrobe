@@ -8,7 +8,7 @@
     --color-on-primary: #fff;
     --color-surface: #F8F9FA;
     --color-surface-2: #ebeff2;
-    --color-inactive: #89959F;
+    --color-inactive: #65727D;
     --color-disabled: #89959f;
 
     --animation-duration: 240ms;
@@ -34,10 +34,14 @@ html[data-theme="dark"] {
 body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: -apple-system, Arial, sans-serif;
 }
 
 body, button {
     font-weight: 500;
+}
+
+a {
+    color: currentColor;
 }
 

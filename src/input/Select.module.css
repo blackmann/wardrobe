@@ -1,6 +1,6 @@
 .select {
     appearance: none;
-    background-color: var(--color-surface);
+    background-color: var(--color-surface-2);
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='gray' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>");
     background-repeat: no-repeat;
     background-position: right .75rem center;

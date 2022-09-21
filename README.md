@@ -4,7 +4,8 @@ A personal React ⚛️components library to bootstrap ideas quickly. This set o
 designed to be omnipotent. If you can't find what you want, you're better off using another components library or
 implementing yours.
 
-🌗 Dark mode inside
+- 🌗 Dark mode inside
+- 🌳 Tree-shakeable
 
 ## Installation + Usage
 

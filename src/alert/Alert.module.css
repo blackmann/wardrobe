@@ -1,0 +1,11 @@
+.alert {
+  background-color: var(--color-surface-2);
+  border-radius: var(--border-radius);
+  display: flex;
+  padding: 1rem;
+}
+
+.alert .leading {
+  margin-right: 1rem;
+
+}

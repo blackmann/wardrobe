@@ -1,11 +1,12 @@
 .button {
+    --button-padding: 0.75rem;
     background-color: #fff0;
     border: none;
     border-radius: var(--border-radius);
     color: var(--color-on-primary);
     cursor: pointer;
     font-size: 1rem;
-    padding: 0.75rem;
+    padding: var(--button-padding);
     position: relative;
     z-index: 1;
 }
@@ -42,6 +43,7 @@
     background: transparent;
     border: 2px solid currentColor;
     color: var(--color-foreground);
+    padding: calc(var(--button-padding) - var(--border-width));
 }
 
 .buttonOutlined:before {

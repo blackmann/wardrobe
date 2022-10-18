@@ -12,14 +12,11 @@
   padding: 0;
   position: absolute;
   width: 100%;
+  z-index: 100;
 }
 
 .option {
   padding: 0.75rem;
-}
-
-.option:not(:last-child) {
-  border-bottom: 1px solid var(--color-surface);
 }
 
 .option:hover {

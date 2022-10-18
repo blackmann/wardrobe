@@ -2,9 +2,8 @@ import React, { ForwardedRef } from 'react'
 import clsx from 'clsx'
 import styles from './Button.module.css'
 
-interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
+interface ButtonProps extends React.ComponentProps<'button'> {
   outlined?: boolean
-  type?: 'button' | 'submit' | 'reset' | undefined
 }
 
 const Button = React.forwardRef(

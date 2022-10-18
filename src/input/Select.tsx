@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import styles from './Select.module.css'
 
-interface SelectProps extends React.HTMLProps<HTMLSelectElement> {}
+interface SelectProps extends React.ComponentProps<'select'> {}
 
 const Select = React.forwardRef(
   (

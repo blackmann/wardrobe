@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import styles from './Input.module.css'
 
-interface InputProps extends React.HTMLProps<HTMLInputElement> {
+interface InputProps extends React.ComponentProps<'input'> {
   leading?: React.ReactNode
 }
 

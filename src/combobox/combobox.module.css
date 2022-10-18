@@ -1,0 +1,28 @@
+.combobox {
+  position: relative;
+}
+
+.options {
+  background-color: var(--color-background);
+  border: var(--border-width) solid var(--color-surface);
+  border-radius: var(--border-radius);
+  list-style: none;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.option {
+  padding: 0.75rem;
+}
+
+.option:not(:last-child) {
+  border-bottom: 1px solid var(--color-surface);
+}
+
+.option:hover {
+  background-color: var(--color-surface);
+  cursor: pointer;
+}

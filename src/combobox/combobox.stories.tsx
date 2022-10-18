@@ -13,17 +13,17 @@ function ComboExample() {
   const [selection, setSelection] = React.useState('')
 
   return (
-    <>
-    <Combobox
-      onChange={(e) => setSelection(e.target.value)}
-      onSelect={(option) => setSelection(option)}
-      options={places}
-      placeholder="Search for landing spot"
-      value={selection}
-    />
-
-    <div>Be ready to fight 🤺</div>
-    </>
+    <label>
+      Game 7
+      <Combobox
+        onChange={(e) => setSelection(e.target.value)}
+        onSelect={(option) => setSelection(option)}
+        options={places}
+        placeholder="Search for landing spot"
+        value={selection}
+      />
+      <div>Be ready to fight 🤺</div>
+    </label>
   )
 }
 

@@ -26,3 +26,7 @@
   background-color: var(--color-surface);
   cursor: pointer;
 }
+
+label > .combobox {
+  margin-top: 0.5rem;
+}

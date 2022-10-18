@@ -71,7 +71,11 @@ const Combobox = React.forwardRef(
           >
             {/* TODO: Accept key field name (or key getter) */}
             {filteredOptions.map((option, index) => (
-              <li key={index} onMouseDown={() => handleOptionSelect(option)}>
+              <li
+                className={styles.optionItem}
+                key={index}
+                onMouseDown={() => handleOptionSelect(option)}
+              >
                 {optionRender(option)}
               </li>
             ))}

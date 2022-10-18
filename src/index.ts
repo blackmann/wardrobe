@@ -1,6 +1,7 @@
 import './index.css'
 export * from './alert'
 export { default as Button } from './button'
+export * from './combobox'
 export * from './input'
 export * from './loader'
 export * from './theme'

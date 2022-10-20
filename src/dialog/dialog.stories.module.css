@@ -1,0 +1,16 @@
+.dialog {
+  border-radius: 1rem;
+}
+
+.footer > button + button {
+  margin-left: 0.5rem;
+}
+
+.dialogContent {
+  padding: 1rem;
+  width: 24rem;
+}
+
+.dialogContent h3, p {
+  margin: 0 0 1rem;
+}

@@ -1,0 +1,22 @@
+.backdrop {
+  align-items: center;
+  background-color: var(--color-dialog-backdrop);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.dialogContent {
+  background-color: var(--color-background);
+}
+
+/** Intendend to move the dialog up away from the center */
+.stepper {
+  height: 15rem;
+}
+

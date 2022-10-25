@@ -10,8 +10,11 @@
     --color-surface-2: #ebeff2;
     --color-inactive: #65727D;
     --color-disabled: #89959f;
+    --color-dialog-backdrop: #3d3d3d44;
 
     --animation-duration: 240ms;
+
+    --font-family: system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 
 html[data-theme="dark"] {
@@ -34,7 +37,11 @@ html[data-theme="dark"] {
 body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: -apple-system, Arial, sans-serif;
+    font-family: var(--font-family);
+}
+
+button {
+    font-family: var(--font-family);
 }
 
 body, button {

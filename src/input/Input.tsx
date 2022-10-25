@@ -35,7 +35,7 @@ const Input = React.forwardRef(
           [styles.inline]: checkable,
         })}
       >
-        {leading}
+        {leading && <div>{leading}</div>}
         <input
           {...forwardedProps}
           className={styles.input}

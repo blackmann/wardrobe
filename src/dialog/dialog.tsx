@@ -1,11 +1,11 @@
 import React, { ForwardedRef } from 'react'
 import clsx from 'clsx'
-import styles from './dialog.module.css'
+import styles from './Dialog.module.css'
 
 interface DialogProps extends React.PropsWithChildren {
   dismissible?: boolean
   className?: string
-  onClose(): void
+  onClose: () => void
   open: boolean
 }
 
@@ -29,8 +29,8 @@ const Dialog = React.forwardRef(
         <div>
           <div
             className={clsx(styles.dialogContent, className)}
-            role="dialog"
             onClick={(event) => event.stopPropagation()}
+            role="dialog"
           >
             {children}
           </div>
@@ -41,5 +41,7 @@ const Dialog = React.forwardRef(
     )
   }
 )
+
+Dialog.displayName = 'Dialog'
 
 export default Dialog

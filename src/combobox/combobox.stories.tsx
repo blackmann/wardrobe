@@ -1,5 +1,5 @@
 import React from 'react'
-import Combobox from './combobox'
+import Combobox from './Combobox'
 
 const places: Array<string> = [
   'Gotham City',

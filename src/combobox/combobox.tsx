@@ -1,16 +1,16 @@
-import React from 'react'
 import { Input } from '../input'
-import styles from './combobox.module.css'
+import React from 'react'
+import styles from './Combobox.module.css'
 
 interface ComboboxProps extends React.ComponentProps<'input'> {
   maxOptionsHeight?: string
   onFilter?: (option: any, query: string) => boolean
   onSelect?: (option: any) => void
-  options: Array<any>
+  options: any[]
   optionRender?: (option: any) => React.ReactNode
 }
 
-function defaultOptionRender<T>(option: string) {
+function defaultOptionRender(option: string) {
   return <div className={styles.option}>{option}</div>
 }
 
@@ -30,7 +30,7 @@ const Combobox = React.forwardRef(
       type,
       ...inputProps
     }: ComboboxProps,
-    ref: React.ForwardedRef<any> | undefined
+    ref?: React.ForwardedRef<any>
   ) => {
     const [showOptions, setShowOptions] = React.useState(false)
 
@@ -64,7 +64,7 @@ const Combobox = React.forwardRef(
           type="search"
         />
 
-        {showOptions && !!filteredOptions.length && (
+        {showOptions && Boolean(filteredOptions.length) && (
           <ul
             className={styles.options}
             style={{ maxHeight: maxOptionsHeight }}

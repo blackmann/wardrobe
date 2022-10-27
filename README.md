@@ -6,6 +6,7 @@ implementing yours.
 
 - 🌗 Dark mode inside
 - 🌳 Tree-shakeable
+- 🚫♿️ Not fully accessible (TODO)
 
 ## Installation + Usage
 

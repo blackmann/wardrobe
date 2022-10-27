@@ -1,0 +1,53 @@
+.content {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.contextMenuWrapper {
+  position: relative;
+}
+
+.contextMenuWrapper.active .contextMenu {
+  border: 1px solid var(--color-surface-2);
+  border-radius: var(--border-radius);
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.contextMenu {
+  background-color: var(--color-background);
+  list-style: none;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity var(--animation-duration) ease-out;
+  z-index: 10;
+  width: 10rem;
+}
+
+.menuItem {
+  padding: 0.125rem;
+}
+
+.menuItem:not(:last-child) {
+  border-bottom: 1px solid var(--color-surface-2);
+}
+
+.menuItem button {
+  background-color: transparent;
+  border: none;
+  border-radius: calc(var(--border-radius) / 2);
+  color: var(--color-foreground);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem;
+  text-align: start;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.menuItem button:hover {
+  background-color: var(--color-surface-2);
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../button'
-import Dialog from './dialog'
-import styles from './dialog.stories.module.css'
+import Dialog from './Dialog'
+import styles from './Dialog.stories.module.css'
 
 function DialogApp() {
   const [open, setOpen] = React.useState(false)

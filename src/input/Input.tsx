@@ -24,7 +24,7 @@ const Input = React.forwardRef(
     }
 
     const checkable = ['checkbox', 'radio'].includes(
-      forwardedProps.type || 'text'
+      forwardedProps.type ?? 'text'
     )
 
     return (
@@ -35,7 +35,7 @@ const Input = React.forwardRef(
           [styles.inline]: checkable,
         })}
       >
-        {leading && <div>{leading}</div>}
+        {Boolean(leading) && <div>{leading}</div>}
         <input
           {...forwardedProps}
           className={styles.input}

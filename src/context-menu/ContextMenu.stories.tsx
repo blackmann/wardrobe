@@ -3,6 +3,9 @@ import React from 'react'
 import styles from './ContextMenu.stories.module.css'
 
 function Demo({ click }: { click: 'left' | 'right' }) {
+  function handleClick() {
+    console.log('clicked')
+  }
   return (
     <ContextMenu
       className={styles.message}
@@ -12,7 +15,7 @@ function Demo({ click }: { click: 'left' | 'right' }) {
         { id: 'restart', title: 'Restart Game' },
         { id: 'quit', title: '🚪 Quit Game' },
       ]}
-      onMenuItemClick={console.log}
+      onMenuItemClick={handleClick}
     >
       <div>Hello world, {click}-click to see what we have beneath.</div>
     </ContextMenu>

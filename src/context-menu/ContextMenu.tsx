@@ -77,7 +77,10 @@ const ContextMenu = React.forwardRef(
           {menu.map((menuItem) => {
             return (
               <li className={styles.menuItem} key={menuItem.id}>
-                <button onClick={() => handleMenuItemClick(menuItem.id)}>
+                <button
+                  onClick={() => handleMenuItemClick(menuItem.id)}
+                  onMouseDown={(e) => e.preventDefault()}
+                >
                   {menuItem.title}
                 </button>
               </li>

@@ -18,3 +18,7 @@
 label > .textArea {
   margin-top: 0.5rem;
 }
+
+.textArea {
+  font-family: var(--font-family);
+}

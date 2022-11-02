@@ -8,7 +8,7 @@ interface InputProps extends React.ComponentProps<'input'> {
 
 const Input = React.forwardRef(
   (
-    { className, leading, ...forwardedProps }: InputProps,
+    { children, className, leading, ...forwardedProps }: InputProps,
     ref: React.ForwardedRef<any> | undefined
   ) => {
     const [focused, setFocused] = React.useState(false)
@@ -43,7 +43,7 @@ const Input = React.forwardRef(
           onFocus={handleFocus}
           ref={ref}
         />
-        {forwardedProps.children}
+        {children}
       </div>
     )
   }

@@ -82,11 +82,11 @@ input[type='radio']:checked::after {
 }
 
 .inline {
-  display: inline;
-  padding: 0;
+  display: inline-flex;
+  padding: 0 0.25rem 0 0;
 }
 
-.inputContainer.focused {
+.inputContainer:not(.inline).focused {
   border-color: currentColor;
 }
 

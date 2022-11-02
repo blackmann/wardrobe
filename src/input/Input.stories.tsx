@@ -47,8 +47,9 @@ export const Disabled = () => (
 
 export const Checkbox = () => (
   <div style={{ display: 'flex', alignItems: 'center' }}>
-    <Input type="checkbox" id="feeling" style={{ marginRight: '1rem' }} />
-    <label htmlFor="feeling">Looking good?</label>
+    <Input type="checkbox" id="feeling" style={{ marginRight: '1rem' }}>
+      <label htmlFor="feeling">Looking good?</label>
+    </Input>
   </div>
 )
 
@@ -61,8 +62,9 @@ export const Radio = () => (
           type="radio"
           id="money"
           style={{ marginRight: '1rem' }}
-        />
-        <label htmlFor="money">Get all you want</label>
+        >
+          <label htmlFor="money">Get all you want</label>
+        </Input>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -71,8 +73,9 @@ export const Radio = () => (
           type="radio"
           id="power"
           style={{ marginRight: '1rem' }}
-        />
-        <label htmlFor="power">Influence people</label>
+        >
+          <label htmlFor="power">Influence people</label>
+        </Input>
       </div>
     </fieldset>
   </>

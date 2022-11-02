@@ -30,15 +30,14 @@ const ContextMenu = React.forwardRef(
 
     function handleOnContextMenu(event: React.MouseEvent<HTMLDivElement>) {
       if (!showMenu && menuRef.current !== null) {
-        const x = event.pageX - event.currentTarget.offsetLeft
-        const y = event.pageY - event.currentTarget.offsetTop
+        // TODO: If it's a left click, let's use the bottom/middle of the target
+        // as the position
+        const x = event.pageX
+        const y = event.pageY
 
         if (x + menuRef.current.offsetWidth > document.body.offsetWidth) {
           menuRef.current.style.removeProperty('left')
-          const xr =
-            event.currentTarget.offsetWidth +
-            event.currentTarget.offsetLeft -
-            event.pageX
+          const xr = document.body.offsetWidth - event.pageX
           menuRef.current.style.right = `${xr}px`
         } else {
           menuRef.current.style.removeProperty('right')

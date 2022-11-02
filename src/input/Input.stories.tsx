@@ -24,7 +24,6 @@ export const Plain = () => {
     <Input
       leading={<SearchIcon />}
       placeholder="What are you searching for"
-      type="search"
       ref={ref}
     />
   )

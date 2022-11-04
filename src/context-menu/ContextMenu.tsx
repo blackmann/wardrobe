@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import clsx from 'clsx'
 import styles from './ContextMenu.module.css'
 
@@ -62,27 +63,30 @@ const ContextMenu = function ({
         {children}
       </div>
 
-      <ul
-        className={clsx(styles.contextMenu, 'context-menu', {
-          [styles.active]: showMenu,
-        })}
-        onBlur={() => setShowMenu(false)}
-        ref={menuRef}
-        tabIndex={-1}
-      >
-        {menu.map((menuItem) => {
-          return (
-            <li className={styles.menuItem} key={menuItem.id}>
-              <button
-                onClick={() => handleMenuItemClick(menuItem.id)}
-                onMouseDown={(e) => e.preventDefault()}
-              >
-                {menuItem.title}
-              </button>
-            </li>
-          )
-        })}
-      </ul>
+      {ReactDOM.createPortal(
+        <ul
+          className={clsx(styles.contextMenu, 'context-menu', {
+            [styles.active]: showMenu,
+          })}
+          onBlur={() => setShowMenu(false)}
+          ref={menuRef}
+          tabIndex={-1}
+        >
+          {menu.map((menuItem) => {
+            return (
+              <li className={styles.menuItem} key={menuItem.id}>
+                <button
+                  onClick={() => handleMenuItemClick(menuItem.id)}
+                  onMouseDown={(e) => e.preventDefault()}
+                >
+                  {menuItem.title}
+                </button>
+              </li>
+            )
+          })}
+        </ul>,
+        document.body
+      )}
     </>
   )
 }

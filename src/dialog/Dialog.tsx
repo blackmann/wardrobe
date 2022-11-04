@@ -1,4 +1,5 @@
 import React, { ForwardedRef } from 'react'
+import ReactDOM from 'react-dom'
 import clsx from 'clsx'
 import styles from './Dialog.module.css'
 
@@ -24,20 +25,17 @@ const Dialog = React.forwardRef(
       }
     }
 
-    return (
+    return ReactDOM.createPortal(
       <div className={styles.backdrop} onClick={handleBackdropClick}>
-        <div>
-          <div
-            className={clsx(styles.dialogContent, className)}
-            onClick={(event) => event.stopPropagation()}
-            role="dialog"
-          >
-            {children}
-          </div>
-
-          <div className={styles.stepper}></div>
+        <div
+          className={clsx(styles.dialogContent, className)}
+          onClick={(event) => event.stopPropagation()}
+          role="dialog"
+        >
+          {children}
         </div>
-      </div>
+      </div>,
+      document.body
     )
   }
 )

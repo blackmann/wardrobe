@@ -1,5 +1,7 @@
 .dialog {
+  align-self: flex-start;
   border-radius: 1rem;
+  margin-top: 3rem;
 }
 
 .footer > button + button {

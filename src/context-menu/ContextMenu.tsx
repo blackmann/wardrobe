@@ -14,83 +14,78 @@ interface ContextMenuProps extends React.PropsWithChildren {
   onMenuItemClick: (id: string) => void
 }
 
-const ContextMenu = React.forwardRef(
-  (
-    {
-      children,
-      className,
-      click = 'right',
-      menu,
-      onMenuItemClick,
-    }: ContextMenuProps,
-    ref?: React.ForwardedRef<any>
-  ) => {
-    const [showMenu, setShowMenu] = React.useState(false)
-    const menuRef = React.useRef<HTMLUListElement>(null)
+const ContextMenu = function ({
+  children,
+  click = 'right',
+  menu,
+  onMenuItemClick,
+}: ContextMenuProps) {
+  const [showMenu, setShowMenu] = React.useState(false)
+  const menuRef = React.useRef<HTMLUListElement>(null)
 
-    function handleOnContextMenu(event: React.MouseEvent<HTMLDivElement>) {
-      if (!showMenu && menuRef.current !== null) {
-        // TODO: If it's a left click, let's use the bottom/middle of the target
-        // as the position
-        const x = event.pageX
-        const y = event.pageY
+  function handleOnContextMenu(event: React.MouseEvent<HTMLDivElement>) {
+    if (!showMenu && menuRef.current !== null) {
+      // TODO: If it's a left click, let's use the bottom/middle of the target
+      // as the position
+      const x = event.pageX
+      const y = event.pageY
 
-        if (x + menuRef.current.offsetWidth > document.body.offsetWidth) {
-          menuRef.current.style.removeProperty('left')
-          const xr = document.body.offsetWidth - event.pageX
-          menuRef.current.style.right = `${xr}px`
-        } else {
-          menuRef.current.style.removeProperty('right')
-          menuRef.current.style.left = `${x}px`
-        }
-
-        menuRef.current.style.top = `${y}px`
-        setShowMenu(true)
-
-        menuRef.current?.focus()
+      if (x + menuRef.current.offsetWidth > document.body.offsetWidth) {
+        menuRef.current.style.removeProperty('left')
+        const xr = document.body.offsetWidth - event.pageX
+        menuRef.current.style.right = `${xr}px`
+      } else {
+        menuRef.current.style.removeProperty('right')
+        menuRef.current.style.left = `${x}px`
       }
-      event.preventDefault()
-    }
 
-    function handleMenuItemClick(id: string) {
-      setShowMenu(false)
-      onMenuItemClick(id)
-    }
+      menuRef.current.style.top = `${y}px`
+      setShowMenu(true)
 
-    return (
+      menuRef.current?.focus()
+    }
+    event.preventDefault()
+  }
+
+  function handleMenuItemClick(id: string) {
+    setShowMenu(false)
+    onMenuItemClick(id)
+  }
+
+  return (
+    <>
       <div
-        className={clsx(styles.contextMenuWrapper, className, {
-          [styles.active]: showMenu,
-        })}
+        className={styles.content}
         onClick={click === 'left' ? handleOnContextMenu : undefined}
         onContextMenu={click === 'right' ? handleOnContextMenu : undefined}
-        ref={ref}
       >
-        <div className={styles.content}>{children}</div>
-
-        <ul
-          className={clsx(styles.contextMenu, 'context-menu')}
-          onBlur={() => setShowMenu(false)}
-          ref={menuRef}
-          tabIndex={-1}
-        >
-          {menu.map((menuItem) => {
-            return (
-              <li className={styles.menuItem} key={menuItem.id}>
-                <button
-                  onClick={() => handleMenuItemClick(menuItem.id)}
-                  onMouseDown={(e) => e.preventDefault()}
-                >
-                  {menuItem.title}
-                </button>
-              </li>
-            )
-          })}
-        </ul>
+        {children}
       </div>
-    )
-  }
-)
+
+      <ul
+        className={clsx(styles.contextMenu, 'context-menu', {
+          [styles.active]: showMenu,
+        })}
+        onBlur={() => setShowMenu(false)}
+        ref={menuRef}
+        tabIndex={-1}
+      >
+        {menu.map((menuItem) => {
+          return (
+            <li className={styles.menuItem} key={menuItem.id}>
+              <button
+                onClick={() => handleMenuItemClick(menuItem.id)}
+                onMouseDown={(e) => e.preventDefault()}
+              >
+                {menuItem.title}
+              </button>
+            </li>
+          )
+        })}
+      </ul>
+    </>
+  )
+}
 
 ContextMenu.displayName = 'ContextMenu'
 

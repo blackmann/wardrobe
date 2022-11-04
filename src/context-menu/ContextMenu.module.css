@@ -4,7 +4,7 @@
   cursor: default;
 }
 
-.contextMenuWrapper.active .contextMenu {
+.contextMenu.active {
   border: 1px solid var(--color-surface-2);
   border-radius: var(--border-radius);
   opacity: 1;

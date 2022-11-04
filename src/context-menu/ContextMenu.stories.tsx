@@ -8,7 +8,6 @@ function Demo({ click }: { click: 'left' | 'right' }) {
   }
   return (
     <ContextMenu
-      className={styles.message}
       click={click}
       menu={[
         { id: 'see-island', title: 'See island' },
@@ -17,7 +16,9 @@ function Demo({ click }: { click: 'left' | 'right' }) {
       ]}
       onMenuItemClick={handleClick}
     >
-      <div>Hello world, {click}-click to see what we have beneath.</div>
+      <div className={styles.message}>
+        Hello world, {click}-click to see what we have beneath.
+      </div>
     </ContextMenu>
   )
 }

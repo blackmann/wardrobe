@@ -8,7 +8,8 @@ interface MenuItem {
   title: React.ReactNode
 }
 
-interface ContextMenuProps extends React.PropsWithChildren {
+interface ContextMenuProps {
+  children: React.ReactElement
   className?: string
   click?: 'left' | 'right'
   menu: MenuItem[]
@@ -40,7 +41,13 @@ const ContextMenu = function ({
         menuRef.current.style.left = `${x}px`
       }
 
-      menuRef.current.style.top = `${y}px`
+      if (y + menuRef.current.offsetHeight > document.body.offsetHeight) {
+        menuRef.current.style.removeProperty('top')
+        menuRef.current.style.bottom = `${document.body.offsetHeight - y}px`
+      } else {
+        menuRef.current.style.removeProperty('bottom')
+        menuRef.current.style.top = `${y}px`
+      }
       setShowMenu(true)
 
       menuRef.current?.focus()
@@ -55,13 +62,11 @@ const ContextMenu = function ({
 
   return (
     <>
-      <div
-        className={styles.content}
-        onClick={click === 'left' ? handleOnContextMenu : undefined}
-        onContextMenu={click === 'right' ? handleOnContextMenu : undefined}
-      >
-        {children}
-      </div>
+      {React.cloneElement(children, {
+        className: clsx(styles.content, children.props.className),
+        onClick: click === 'left' ? handleOnContextMenu : undefined,
+        onContextMenu: click === 'right' ? handleOnContextMenu : undefined,
+      })}
 
       {ReactDOM.createPortal(
         <ul

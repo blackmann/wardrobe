@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import styles from './Button.module.css'
 
 interface ButtonProps extends React.ComponentProps<'button'> {
+  danger?: Boolean
   outlined?: boolean
 }
 

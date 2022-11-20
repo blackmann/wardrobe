@@ -55,7 +55,9 @@ const ContextMenu = function ({
     event.preventDefault()
   }
 
-  function handleMenuItemClick(id: string) {
+  function handleMenuItemClick(event: React.MouseEvent, id: string) {
+    event.preventDefault()
+
     setShowMenu(false)
     onMenuItemClick(id)
   }
@@ -81,7 +83,7 @@ const ContextMenu = function ({
             return (
               <li className={styles.menuItem} key={menuItem.id}>
                 <button
-                  onClick={() => handleMenuItemClick(menuItem.id)}
+                  onClick={(e) => handleMenuItemClick(e, menuItem.id)}
                   onMouseDown={(e) => e.preventDefault()}
                 >
                   {menuItem.title}

@@ -15,14 +15,28 @@ const Dialog = React.forwardRef(
     { children, className, dismissible = true, onClose, open }: DialogProps,
     ref: ForwardedRef<HTMLElement> | null
   ) => {
-    if (!open) {
-      return null
-    }
-
     function handleBackdropClick(event: React.MouseEvent) {
       if (dismissible) {
         onClose()
       }
+    }
+
+    React.useEffect(() => {
+      if (dismissible) {
+        function closeDialog(event: KeyboardEvent) {
+          if (event.key === 'Escape') {
+            onClose()
+          }
+        }
+
+        window.addEventListener('keydown', closeDialog)
+
+        return () => window.removeEventListener('keydown', closeDialog)
+      }
+    }, [])
+
+    if (!open) {
+      return null
     }
 
     return ReactDOM.createPortal(

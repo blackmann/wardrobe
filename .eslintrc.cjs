@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['react', 'prettier'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
     'prettier/prettier': 'warn',
     'react/jsx-sort-props': 'warn',
     'sort-imports': 'warn',

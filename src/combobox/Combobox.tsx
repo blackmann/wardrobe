@@ -1,5 +1,6 @@
 import { Input } from '../input'
 import React from 'react'
+import ReactDOM from 'react-dom'
 import styles from './Combobox.module.css'
 
 interface ComboboxProps extends React.ComponentProps<'input'> {
@@ -18,6 +19,18 @@ function defaultFilter(option: string, query: string) {
   return option.toLowerCase().includes(query.toLowerCase())
 }
 
+function getOptionsStyle(comboboxEl: HTMLDivElement | null) {
+  if (!comboboxEl) {
+    return {}
+  }
+
+  return {
+    left: comboboxEl.offsetLeft,
+    top: comboboxEl.offsetTop + comboboxEl.clientHeight + 2,
+    width: comboboxEl.clientWidth,
+  }
+}
+
 const Combobox = React.forwardRef(
   (
     {
@@ -32,6 +45,7 @@ const Combobox = React.forwardRef(
     }: ComboboxProps,
     ref?: React.ForwardedRef<any>
   ) => {
+    const comboboxRef = React.useRef<HTMLDivElement>(null)
     const [showOptions, setShowOptions] = React.useState(false)
 
     const filteredOptions = React.useMemo(() => {
@@ -39,6 +53,8 @@ const Combobox = React.forwardRef(
         onFilter(option, inputProps.value as string)
       )
     }, [inputProps.value, options])
+
+    const optionsStyle = getOptionsStyle(comboboxRef.current)
 
     function handleOptionSelect(option: any) {
       onSelect?.(option)
@@ -55,7 +71,7 @@ const Combobox = React.forwardRef(
     }
 
     return (
-      <div className={styles.combobox}>
+      <div className={styles.combobox} ref={comboboxRef}>
         <Input
           {...inputProps}
           onBlur={handleBlur}
@@ -64,23 +80,28 @@ const Combobox = React.forwardRef(
           type="search"
         />
 
-        {showOptions && Boolean(filteredOptions.length) && (
-          <ul
-            className={styles.options}
-            style={{ maxHeight: maxOptionsHeight }}
-          >
-            {/* TODO: Accept key field name (or key getter) */}
-            {filteredOptions.map((option, index) => (
-              <li
-                className={styles.optionItem}
-                key={index}
-                onMouseDown={() => handleOptionSelect(option)}
+        {showOptions &&
+          Boolean(filteredOptions.length) &&
+          ReactDOM.createPortal(
+            <>
+              <ul
+                className={styles.options}
+                style={{ maxHeight: maxOptionsHeight, ...optionsStyle }}
               >
-                {optionRender(option)}
-              </li>
-            ))}
-          </ul>
-        )}
+                {/* TODO: Accept key field name (or key getter) */}
+                {filteredOptions.map((option, index) => (
+                  <li
+                    className={styles.optionItem}
+                    key={index}
+                    onMouseDown={() => handleOptionSelect(option)}
+                  >
+                    {optionRender(option)}
+                  </li>
+                ))}
+              </ul>
+            </>,
+            document.body
+          )}
       </div>
     )
   }

@@ -12,7 +12,8 @@
   padding: 0;
   position: absolute;
   width: 100%;
-  z-index: 100;
+  /* well above dialog's backdrop z-index */
+  z-index: 105;
 }
 
 .option {

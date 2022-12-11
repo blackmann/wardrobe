@@ -12,6 +12,7 @@ function Demo({ click }: { click: 'left' | 'right' }) {
       menu={[
         { id: 'see-island', title: 'See island' },
         { id: 'restart', title: 'Restart Game' },
+        { id: 'help', title: 'Call for help', disabled: true },
         { id: 'quit', title: '🚪 Quit Game' },
       ]}
       onMenuItemClick={handleClick}

@@ -32,14 +32,18 @@
   color: var(--color-foreground);
   cursor: pointer;
   font-size: 1rem;
-  padding: 0.25rem;
+  padding: var(--context-menu-item-padding);
   text-align: start;
   white-space: nowrap;
   width: 100%;
 }
 
-.menuItem button:hover {
+.menuItem button:hover:not(:disabled) {
   background-color: var(--color-surface-2);
+}
+
+.menuItem button:disabled {
+  color: var(--color-disabled);
 }
 
 @keyframes fade-in {

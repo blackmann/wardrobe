@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import styles from './ContextMenu.module.css'
 
 interface MenuItem {
+  disabled?: boolean
   id: string
   title: React.ReactNode
 }
@@ -68,6 +69,7 @@ function Menu({ menu, onHide, onItemClick, xy }: MenuProps) {
         return (
           <li className={styles.menuItem} key={menuItem.id}>
             <button
+              disabled={menuItem.disabled}
               onClick={(e) => handleItemClick(e, menuItem.id)}
               onMouseDown={(e) => e.preventDefault()}
             >
@@ -133,3 +135,4 @@ const ContextMenu = function ({
 ContextMenu.displayName = 'ContextMenu'
 
 export default ContextMenu
+export type { ContextMenuProps, MenuItem }

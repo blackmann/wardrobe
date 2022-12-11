@@ -15,6 +15,8 @@
     --animation-duration: 240ms;
 
     --font-family: system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+    --context-menu-item-padding: 0.5rem;
 }
 
 html[data-theme="dark"] {

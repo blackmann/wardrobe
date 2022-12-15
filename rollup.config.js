@@ -2,7 +2,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import typescript from '@rollup/plugin-typescript'
-import { visualizer } from "rollup-plugin-visualizer"
+import { visualizer } from 'rollup-plugin-visualizer'
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
@@ -22,7 +22,7 @@ const config = {
     commonjs(),
     postcss({ extract: 'styles/index.css', modules: true }),
     typescript(),
-    visualizer({filename: 'build/stats.html'})
+    visualizer({ filename: 'build/stats.html' }),
   ],
 }
 

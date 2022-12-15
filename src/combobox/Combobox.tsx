@@ -33,9 +33,11 @@ function getOptionsStyle(comboboxEl: HTMLDivElement | null) {
     return {}
   }
 
+  const boundingRect = comboboxEl.getBoundingClientRect()
+
   return {
-    left: comboboxEl.offsetLeft,
-    top: comboboxEl.offsetTop + comboboxEl.clientHeight + 2,
+    left: boundingRect.left,
+    top: boundingRect.top + comboboxEl.clientHeight + 2,
     width: comboboxEl.clientWidth,
   }
 }

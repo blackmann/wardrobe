@@ -20,7 +20,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.19.0",
-    "@ladle/react": "^2.4.2",
+    "@ladle/react": "^2.4.5",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^14.0.1",
     "@rollup/plugin-typescript": "^8.5.0",

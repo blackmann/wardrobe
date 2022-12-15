@@ -1316,10 +1316,10 @@
   resolved "https://registry.npmjs.org/@ladle/react-context/-/react-context-1.0.1.tgz"
   integrity sha512-xVQ8siyOEQG6e4Knibes1uA3PTyXnqiMmfSmd5pIbkzeDty8NCBtYHhTXSlfmcDNEsw/G8OzNWo4VbyQAVDl2A==
 
-"@ladle/react@^2.4.2":
-  version "2.4.2"
-  resolved "https://registry.npmjs.org/@ladle/react/-/react-2.4.2.tgz"
-  integrity sha512-XvdDxLFu7/529/lo2egkC3JSud6BzfdcH3Cs4BUOH1cMcSIEwMj2Vw2El2tIYehRAjmGGhVu3i1zqXkeZoF2BQ==
+"@ladle/react@^2.4.5":
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/@ladle/react/-/react-2.4.5.tgz#2331fa1ef5553db9cb696bf0924bd961b9e1594d"
+  integrity sha512-Aso5YYCm1EwJ7GxP0vaEYrBSnGLMkPHy3YK7k4la/zlWxqxMb7sQhbjXu8Q1wJtj9Qby58MryknpbznbG75Fng==
   dependencies:
     "@babel/code-frame" "^7.18.6"
     "@babel/core" "^7.18.13"

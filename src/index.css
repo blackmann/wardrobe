@@ -47,7 +47,7 @@ button {
     font-family: var(--font-family);
 }
 
-body, button {
+body, button, a {
     font-weight: 500;
 }
 

@@ -15,6 +15,11 @@
     z-index: 1;
 }
 
+a.button {
+    text-decoration: none;
+    font-weight: inherit;
+}
+
 .button:before {
     background-color: var(--button-color);
     border-radius: inherit;

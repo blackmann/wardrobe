@@ -1,14 +1,19 @@
 import { Input } from '../input'
+import NewEntry from './NewEntry'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import styles from './Combobox.module.css'
 
 interface ComboboxProps extends React.ComponentProps<'input'> {
+  freeEntry?: boolean
   maxOptionsHeight?: string
+  newEntryTitle?: string
+  onNewItemSelect?: (entry: string) => void
   onFilter?: (option: any, query: string) => boolean
   onSelect?: (option: any) => void
   options: any[]
   optionRender?: (option: any) => React.ReactNode
+  validateNewEntry?: (entry?: string) => boolean
 }
 
 function defaultOptionRender(option: string) {
@@ -17,6 +22,10 @@ function defaultOptionRender(option: string) {
 
 function defaultFilter(option: string, query: string) {
   return option.toLowerCase().includes(query.toLowerCase())
+}
+
+function defaultNewValueValidator() {
+  return true
 }
 
 function getOptionsStyle(comboboxEl: HTMLDivElement | null) {
@@ -34,13 +43,16 @@ function getOptionsStyle(comboboxEl: HTMLDivElement | null) {
 const Combobox = React.forwardRef(
   (
     {
+      freeEntry,
       maxOptionsHeight,
+      newEntryTitle,
       onFilter = defaultFilter,
+      onNewItemSelect,
       onSelect,
       options,
       optionRender = defaultOptionRender,
-      // Exclude type
       type,
+      validateNewEntry = defaultNewValueValidator,
       ...inputProps
     }: ComboboxProps,
     ref?: React.ForwardedRef<any>
@@ -54,14 +66,37 @@ const Combobox = React.forwardRef(
       )
     }, [inputProps.value, options])
 
+    const newOption = React.useMemo(() => {
+      if (filteredOptions.length || !freeEntry) {
+        return null
+      }
+
+      const value = inputProps.value?.toString() ?? ''
+      const isValidEntry = validateNewEntry(value)
+      const title = isValidEntry ? 'Click to add' : newEntryTitle
+
+      return (
+        <NewEntry
+          onClick={() => handleNewItemSelect(value)}
+          title={title}
+          value={value}
+        />
+      )
+    }, [filteredOptions])
+
     const optionsStyle = getOptionsStyle(comboboxRef.current)
+
+    function handleNewItemSelect(value: string) {
+      onNewItemSelect?.(value)
+      hideOptions()
+    }
 
     function handleOptionSelect(option: any) {
       onSelect?.(option)
+      hideOptions()
     }
 
-    function handleBlur(event: React.FocusEvent<HTMLInputElement>) {
-      inputProps.onBlur?.(event)
+    function hideOptions() {
       setShowOptions(false)
     }
 
@@ -70,18 +105,14 @@ const Combobox = React.forwardRef(
       inputProps.onFocus?.(event)
     }
 
+    const hasOptions = Boolean(filteredOptions.length) || newOption
+
     return (
       <div className={styles.combobox} ref={comboboxRef}>
-        <Input
-          {...inputProps}
-          onBlur={handleBlur}
-          onFocus={handleFocus}
-          ref={ref}
-          type="search"
-        />
+        <Input {...inputProps} onFocus={handleFocus} ref={ref} type="search" />
 
         {showOptions &&
-          Boolean(filteredOptions.length) &&
+          hasOptions &&
           ReactDOM.createPortal(
             <>
               <ul
@@ -89,17 +120,25 @@ const Combobox = React.forwardRef(
                 style={{ maxHeight: maxOptionsHeight, ...optionsStyle }}
               >
                 {/* TODO: Accept key field name (or key getter) */}
+                <li className={styles.optionItem}>{newOption}</li>
+
                 {filteredOptions.map((option, index) => (
                   <li
                     className={styles.optionItem}
                     key={index}
-                    onMouseDown={() => handleOptionSelect(option)}
+                    onClick={() => handleOptionSelect(option)}
                   >
                     {optionRender(option)}
                   </li>
                 ))}
               </ul>
             </>,
+            document.body
+          )}
+
+        {showOptions &&
+          ReactDOM.createPortal(
+            <div className={styles.backdrop} onClick={hideOptions}></div>,
             document.body
           )}
       </div>

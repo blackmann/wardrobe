@@ -1,5 +1,14 @@
+.backdrop {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
 .combobox {
   position: relative;
+  z-index: 1;
 }
 
 .options {

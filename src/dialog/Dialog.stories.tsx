@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../button'
+import { Button } from '../button'
 import Dialog from './Dialog'
 import styles from './Dialog.stories.module.css'
 

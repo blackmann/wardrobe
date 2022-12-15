@@ -1,0 +1,7 @@
+.newEntry {
+  padding: 0.5rem;
+}
+
+.title {
+  color: var(--color-disabled);
+}

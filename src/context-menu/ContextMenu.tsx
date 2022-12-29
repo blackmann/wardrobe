@@ -94,6 +94,7 @@ const ContextMenu = function ({
   const [xy, setXy] = React.useState<[number, number]>([0, 0])
 
   function handleOnContextMenu(event: React.MouseEvent<HTMLDivElement>) {
+    event.preventDefault()
     if (!showMenu) {
       // TODO: If it's a left click, let's use the bottom/middle of the target
       // as the position
@@ -104,7 +105,8 @@ const ContextMenu = function ({
 
       setShowMenu(true)
     }
-    event.preventDefault()
+
+    event.stopPropagation()
   }
 
   function handleMenuItemClick(id: string) {

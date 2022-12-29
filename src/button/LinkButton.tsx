@@ -4,13 +4,20 @@ import styles from './Button.module.css'
 
 interface LinkButtonProps extends React.ComponentProps<'a'> {
   danger?: Boolean
+  disabled?: boolean
   outlined?: boolean
 }
 
 // FIX: Can this be DRYed?
 const LinkButton = React.forwardRef(
   (
-    { children, className, outlined, ...forwardedProps }: LinkButtonProps,
+    {
+      children,
+      className,
+      disabled,
+      outlined,
+      ...forwardedProps
+    }: LinkButtonProps,
     ref: ForwardedRef<HTMLAnchorElement> | undefined
   ) => {
     return (
@@ -18,7 +25,7 @@ const LinkButton = React.forwardRef(
         {...forwardedProps}
         className={clsx(
           styles.button,
-          { [styles.buttonOutlined]: outlined },
+          { [styles.buttonOutlined]: outlined, [styles.disabled]: disabled },
           className
         )}
         ref={ref}

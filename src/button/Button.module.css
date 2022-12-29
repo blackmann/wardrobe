@@ -44,8 +44,13 @@ a.button {
     opacity: 1;
 }
 
-.button:disabled:before {
+.button:disabled:before,
+.button.disabled {
     opacity: 0.8;
+}
+
+a.button.disabled {
+    pointer-events: none;
 }
 
 .buttonOutlined {
@@ -68,11 +73,13 @@ a.button {
     opacity: 0.22;
 }
 
-.buttonOutlined:disabled {
+.buttonOutlined:disabled,
+.buttonOutlined.disabled {
     color: var(--color-disabled);
 }
 
-.buttonOutlined:disabled:before {
+.buttonOutlined:disabled:before,
+.buttonOutlined.disabled {
     opacity: 0;
 }
 
@@ -80,6 +87,6 @@ a.button {
     width: var(--button-svg-width);
 }
 
-.button svg + * {
+.button svg+* {
     margin-left: 0.5rem;
 }

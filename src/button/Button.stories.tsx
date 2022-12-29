@@ -34,6 +34,12 @@ export const SimpleLinkButton = () => (
   </LinkButton>
 )
 
+export const DisabledLinkButton = () => (
+  <LinkButton disabled href="https://en.wikipedia.org/wiki/Alexander_the_Great">
+    Can we see greatness?
+  </LinkButton>
+)
+
 export const OutlinedDisabled = () => (
   <Button outlined disabled>
     Hello outlined

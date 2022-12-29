@@ -30,6 +30,7 @@ function Menu({ menu, onHide, onItemClick, xy }: MenuProps) {
   function handleItemClick(event: React.MouseEvent, item: string) {
     event.preventDefault()
     onItemClick(item)
+    event.stopPropagation()
   }
 
   React.useEffect(() => {

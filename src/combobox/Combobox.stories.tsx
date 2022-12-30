@@ -21,7 +21,6 @@ function ComboExample(props: any) {
     <label>
       Game 7
       <Combobox
-        newEntryTitle="Enter landing spot of your choice"
         onChange={(e) => setSelection(e.target.value)}
         onSelect={(option) => {
           console.log('selected', option)
@@ -43,6 +42,7 @@ export const Enabled = () => <ComboExample />
 export const FreeEntryEmail = () => (
   <ComboExample
     freeEntry
+    newEntryTitle="Enter email to send invite"
     validateNewEntry={(value: string) => EMAIL_REGEX.test(value)}
     onNewItemSelect={(value: string) => console.log('new entry', value)}
     options={emails}

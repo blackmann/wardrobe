@@ -4,6 +4,7 @@
   width: 100%;
   height: 100%;
   top: 0;
+  z-index: 105;
 }
 
 .combobox {
@@ -22,7 +23,7 @@
   position: absolute;
   width: 100%;
   /* well above dialog's backdrop z-index */
-  z-index: 105;
+  z-index: 110;
 }
 
 .option {

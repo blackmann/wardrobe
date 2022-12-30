@@ -20,7 +20,7 @@ function defaultOptionRender(option: string) {
   return <div className={styles.option}>{option}</div>
 }
 
-function defaultFilter(option: string, query: string) {
+function defaultFilter(option: string, query: string = '') {
   return option.toLowerCase().includes(query.toLowerCase())
 }
 
@@ -69,7 +69,7 @@ const Combobox = React.forwardRef(
     }, [inputProps.value, options])
 
     const newOption = React.useMemo(() => {
-      if (filteredOptions.length || !freeEntry) {
+      if (!freeEntry) {
         return null
       }
 
@@ -77,16 +77,22 @@ const Combobox = React.forwardRef(
       const isValidEntry = validateNewEntry(value)
       const title = isValidEntry ? 'Click to add' : newEntryTitle
 
-      return (
-        <NewEntry
-          onClick={() => handleNewItemSelect(value)}
-          title={title}
-          value={value}
-        />
-      )
+      return {
+        element: (
+          <NewEntry
+            onClick={() => handleNewItemSelect(value)}
+            title={title}
+            value={value}
+          />
+        ),
+        value,
+      }
     }, [filteredOptions])
 
     const optionsStyle = getOptionsStyle(comboboxRef.current)
+
+    const hasOptions = Boolean(filteredOptions.length) || newOption
+    const optionsVisibile = showOptions && hasOptions
 
     function handleNewItemSelect(value: string) {
       onNewItemSelect?.(value)
@@ -107,23 +113,55 @@ const Combobox = React.forwardRef(
       inputProps.onFocus?.(event)
     }
 
-    const hasOptions = Boolean(filteredOptions.length) || newOption
+    function handleKeyDown(event: React.KeyboardEvent) {
+      // this brings back options on key entry
+      // REDO: this is lazy
+      setShowOptions(true)
+
+      event.stopPropagation()
+
+      if (!optionsVisibile) {
+        return
+      }
+
+      switch (event.key) {
+        case 'Escape': {
+          setShowOptions(false)
+          break
+        }
+
+        case 'Enter': {
+          // TODO: Allow cursor selection
+          const option = filteredOptions[0]
+          if (option) {
+            handleOptionSelect(option)
+          } else if (newOption?.value) {
+            handleNewItemSelect(newOption.value)
+          }
+        }
+      }
+    }
 
     return (
-      <div className={styles.combobox} ref={comboboxRef}>
+      <div
+        className={styles.combobox}
+        onKeyDown={handleKeyDown}
+        ref={comboboxRef}
+      >
         <Input {...inputProps} onFocus={handleFocus} ref={ref} type="search" />
 
-        {showOptions &&
-          hasOptions &&
+        {optionsVisibile &&
           ReactDOM.createPortal(
             <>
               <ul
                 className={styles.options}
                 style={{ maxHeight: maxOptionsHeight, ...optionsStyle }}
               >
-                {/* TODO: Accept key field name (or key getter) */}
-                <li className={styles.optionItem}>{newOption}</li>
+                {!filteredOptions.length && newOption?.value && (
+                  <li className={styles.optionItem}>{newOption.element}</li>
+                )}
 
+                {/* TODO: Accept key field name (or key getter) */}
                 {filteredOptions.map((option, index) => (
                   <li
                     className={styles.optionItem}

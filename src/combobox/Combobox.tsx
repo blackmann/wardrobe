@@ -134,8 +134,12 @@ const Combobox = React.forwardRef(
           // TODO: Allow cursor selection
           const option = filteredOptions[0]
           if (option) {
+            event.preventDefault()
+
             handleOptionSelect(option)
           } else if (newOption?.value) {
+            event.preventDefault()
+
             handleNewItemSelect(newOption.value)
           }
         }

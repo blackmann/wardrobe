@@ -23,7 +23,7 @@
 .input[type='checkbox']::before,
 .input[type='radio']::before {
   border: solid var(--border-width) currentColor;
-  border-radius: var(--border-radius);
+  border-radius: var(--checkbox-border-radius);
   content: '';
   display: inline-block;
   height: var(--size);
@@ -40,7 +40,7 @@ input[type='radio']::after {
   width: calc(var(--size) - 4px);
   height: calc(var(--size) - 4px);
   background-color: var(--color-surface);
-  border-radius: calc(var(--border-radius) / 2);
+  border-radius: calc(var(--checkbox-border-radius) / 2);
   display: inline-block;
   position: absolute;
   top: 4px;

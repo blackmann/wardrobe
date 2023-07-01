@@ -9,15 +9,19 @@ interface ButtonProps extends React.ComponentProps<'button'> {
 
 const Button = React.forwardRef(
   (
-    { children, className, outlined, ...forwardedProps }: ButtonProps,
+    { children, className, outlined, danger, ...forwardedProps }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement> | undefined
   ) => {
     return (
       <button
+        role="button"
         {...forwardedProps}
         className={clsx(
           styles.button,
-          { [styles.buttonOutlined]: outlined },
+          {
+            [styles.buttonOutlined]: outlined,
+            [styles.buttonDanger]: danger,
+          },
           className
         )}
         ref={ref}

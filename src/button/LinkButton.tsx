@@ -16,6 +16,7 @@ const LinkButton = React.forwardRef(
       className,
       disabled,
       outlined,
+      danger,
       ...forwardedProps
     }: LinkButtonProps,
     ref: ForwardedRef<HTMLAnchorElement> | undefined
@@ -25,7 +26,11 @@ const LinkButton = React.forwardRef(
         {...forwardedProps}
         className={clsx(
           styles.button,
-          { [styles.buttonOutlined]: outlined, [styles.disabled]: disabled },
+          {
+            [styles.buttonOutlined]: outlined,
+            [styles.buttonDanger]: danger,
+            [styles.disabled]: disabled,
+          },
           className
         )}
         ref={ref}

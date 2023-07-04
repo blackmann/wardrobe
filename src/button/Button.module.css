@@ -1,92 +1,96 @@
 .button {
-    --button-padding: 0.75rem;
-    --button-color: var(--color-primary);
-    align-items: center;
-    background-color: #fff0;
-    border: none;
-    border-radius: var(--border-radius);
-    color: var(--color-on-primary);
-    cursor: pointer;
-    display: inline-flex;
-    font-size: 1rem;
-    height: 2.5rem;
-    padding: var(--button-padding);
-    position: relative;
-    z-index: 1;
+  --button-padding: 0.75rem;
+  --button-color: var(--color-primary);
+  align-items: center;
+  background-color: #fff0;
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--color-on-primary);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.5rem;
+  padding: var(--button-padding);
+  position: relative;
+  z-index: 1;
 }
 
 a.button {
-    text-decoration: none;
-    font-weight: inherit;
+  text-decoration: none;
+  font-weight: inherit;
 }
 
 .button:before {
-    background-color: var(--button-color);
-    border-radius: inherit;
-    content: "";
-    display: flex;
-    height: 100%;
-    left: 0;
-    opacity: 1;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    transition: opacity var(--animation-duration) ease-out;
-    width: 100%;
-    z-index: -1;
+  background-color: var(--button-color);
+  border-radius: inherit;
+  content: '';
+  display: flex;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: opacity var(--animation-duration) ease-out;
+  width: 100%;
+  z-index: -1;
 }
 
 .button:hover:before {
-    opacity: 0.95;
+  opacity: 0.95;
 }
 
 .button:active:before {
-    opacity: 1;
+  opacity: 1;
 }
 
 .button:disabled:before,
 .button.disabled {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 a.button.disabled {
-    pointer-events: none;
+  cursor: not-allowed;
 }
 
 .buttonOutlined {
-    background: transparent;
-    border: 2px solid currentColor;
-    color: var(--color-foreground);
-    padding: calc(var(--button-padding) - var(--border-width));
+  background: transparent;
+  border: 2px solid currentColor;
+  color: var(--color-foreground);
+  padding: calc(var(--button-padding) - var(--border-width));
+}
+
+.buttonDanger {
+  --button-color: var(--color-danger);
 }
 
 .buttonOutlined:before {
-    background-color: var(--color-inactive);
-    opacity: 0;
+  background-color: var(--color-inactive);
+  opacity: 0;
 }
 
 .buttonOutlined:hover:before {
-    opacity: 0.11;
+  opacity: 0.11;
 }
 
 .buttonOutlined:active:before {
-    opacity: 0.22;
+  opacity: 0.22;
 }
 
 .buttonOutlined:disabled,
 .buttonOutlined.disabled {
-    color: var(--color-disabled);
+  color: var(--color-disabled);
 }
 
 .buttonOutlined:disabled:before,
 .buttonOutlined.disabled {
-    opacity: 0;
+  opacity: 0;
 }
 
 .button svg {
-    width: var(--button-svg-width);
+  width: var(--button-svg-width);
 }
 
-.button svg+* {
-    margin-left: 0.5rem;
+.button svg + * {
+  margin-left: 0.5rem;
 }

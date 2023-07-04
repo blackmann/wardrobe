@@ -1,62 +1,64 @@
 :root {
-    --border-radius: 0.5rem;
-    --border-width: 2px;
-    --checkbox-border-radius: 0.5rem;
+  --border-radius: 0.5rem;
+  --border-width: 2px;
+  --checkbox-border-radius: 0.5rem;
 
-    --color-background: #fefefe;
-    --color-foreground: #222;
-    --color-primary: #7193ca;
-    --color-on-primary: #fff;
-    --color-surface: #F8F9FA;
-    --color-surface-2: #ebeff2;
-    --color-inactive: #65727D;
-    --color-disabled: #89959f;
-    --color-dialog-backdrop: #3d3d3d44;
+  --color-background: #fefefe;
+  --color-foreground: #222;
+  --color-primary: #7193ca;
+  --color-on-primary: #fff;
+  --color-surface: #f8f9fa;
+  --color-surface-2: #ebeff2;
+  --color-inactive: #65727d;
+  --color-disabled: #89959f;
+  --color-dialog-backdrop: #3d3d3d44;
 
-    --animation-duration: 240ms;
-    --button-svg-width: 1.3rem;
+  --animation-duration: 240ms;
+  --button-svg-width: 1.3rem;
 
-    --font-family: system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-family: system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
-    --context-menu-item-padding: 0.5rem;
+  --context-menu-item-padding: 0.5rem;
 }
 
-html[data-theme="dark"] {
-    --color-background: #222;
-    --color-foreground: #DDD;
-    --color-primary: #DDD;
-    --color-on-primary: #222;
-    --color-surface: #252525;
-    --color-surface-2: #343434;
+html[data-theme='dark'] {
+  --color-background: #222;
+  --color-foreground: #ddd;
+  --color-primary: #ddd;
+  --color-on-primary: #222;
+  --color-surface: #252525;
+  --color-surface-2: #343434;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-*:disabled, button:disabled {
-    cursor: not-allowed;
+*:disabled,
+button:disabled {
+  cursor: not-allowed;
 }
 
 body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-family);
 }
 
 button {
-    font-family: var(--font-family);
+  font-family: var(--font-family);
 }
 
-body, button, a {
-    font-weight: 500;
+body,
+button,
+a {
+  font-weight: 500;
 }
 
 a {
-    color: currentColor;
+  color: currentColor;
 }
 
 fieldset {
-    border: none;
+  border: none;
 }
-

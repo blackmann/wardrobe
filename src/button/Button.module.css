@@ -50,7 +50,7 @@ a.button {
 }
 
 a.button.disabled {
-  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .buttonOutlined {
